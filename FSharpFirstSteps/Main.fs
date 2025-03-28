@@ -1,5 +1,6 @@
 open Quadratic
 open CircleCylinder
+open Recursion
 open System
 
 [<EntryPoint>]
@@ -19,4 +20,10 @@ let main argv =
 
     let volumeCylinderSuperpos = cylinderVolume_superpos radius height
     Console.WriteLine("Объем цилиндра с суперпозицией: {0}", volumeCylinderSuperpos)
+
+    // Сумма цифр числа с рекурсией вверх и вниз
+    let result1 = sumDigitsUp 12345
+    Console.WriteLine("Сумма цифр с рекурсией вверх: {0}", result1)
+    let result2 = sumDigitsDown 123
+    Console.WriteLine("Сумма цифр с рекурсией вниз: {0}", result2)
     0
