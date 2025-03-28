@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Compile Include="Quadratic.fs" />
+    <Compile Include="CircleAndCylinder.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
 </Project>
