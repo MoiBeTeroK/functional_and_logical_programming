@@ -18,3 +18,6 @@ let coprimeOperation number op init =
 
 let userInputOperation number op =
     coprimeOperation number op 0
+
+let eulerPhi n =
+    coprimeOperation n (fun acc x -> acc + 1) 0
