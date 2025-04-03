@@ -1,6 +1,7 @@
 open System
 open Language
 open CoprimeOperations
+open CountDivNotDivByThree
 
 [<EntryPoint>]
 let main argv =
@@ -21,7 +22,10 @@ let main argv =
     // Console.WriteLine(euler)
 
     // 15 задание
-    let num = 15
-    let testResult = coprimeWithCondition num (fun x -> x % 2 > 0)
-    Console.WriteLine("Взаимно простые числа с {0}, которые нечетные: {1}", num, String.Join(", ", testResult))
+    // let num = 15
+    // let testResult = coprimeWithCondition num (fun x -> x % 2 > 0)
+    // Console.WriteLine("Взаимно простые числа с {0}, которые нечетные: {1}", num, String.Join(", ", testResult))
+
+    // 16 задание
+    Console.WriteLine(countDivNotDivByThree 15)
     0
