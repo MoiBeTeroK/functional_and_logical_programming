@@ -2,6 +2,7 @@ open System
 open Language
 open CoprimeOperations
 open CountDivNotDivByThree
+open FindMinOddDigit
 
 [<EntryPoint>]
 let main argv =
@@ -26,6 +27,9 @@ let main argv =
     // let testResult = coprimeWithCondition num (fun x -> x % 2 > 0)
     // Console.WriteLine("Взаимно простые числа с {0}, которые нечетные: {1}", num, String.Join(", ", testResult))
 
-    // 16 задание
-    Console.WriteLine(countDivNotDivByThree 15)
+    // 16.1 задание
+    // Console.WriteLine(countDivNotDivByThree 15)
+
+    // 16.2 задание
+    Console.WriteLine(findMinOddDigit 2935)
     0

@@ -9,6 +9,7 @@
     <Compile Include="Language.fs" />
     <Compile Include="CoprimeOperations.fs" />
     <Compile Include="CountDivNotDivByThree.fs" />
+    <Compile Include="FindMinOddDigit.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
 
