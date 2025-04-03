@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Compile Include="Language.fs" />
+    <Compile Include="CoprimeOperations.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
 

@@ -1,5 +1,6 @@
 open System
 open Language
+open CoprimeOperations
 
 [<EntryPoint>]
 let main argv =
@@ -8,6 +9,10 @@ let main argv =
     // Console.WriteLine(question userInput)
 
     // 12 задание
-    super()
-    curry()
+    // super()
+    // curry()
+
+    // 13 задание
+    let result = userInputOperation 12 (+)
+    Console.WriteLine(result)
     0
