@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e99hCrdO2WmLKXxFpBjvMbjq7rbQgVzNCZuD+xx+6naZ4G1rKzAx4qW/T8aOFxyyDZSZDkqTq1lr7sIcykEqrQ==",
+  "dgSpecHash": "sRlx2vLaTt7/MwR/h/ispbu9UOQOTyz0tZddbyOOGLctK1GqxjyNk8Ery+/oH8jmj+pblmRwQoL6jNnirjTEkw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\FSharpFirstSteps\\FSharpApp.fsproj",
+  "projectFilePath": "c:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\FSharpFirstSteps\\FSharpApp.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\Людмила\\.nuget\\packages\\fsharp.core\\6.0.5\\fsharp.core.6.0.5.nupkg.sha512"
   ],

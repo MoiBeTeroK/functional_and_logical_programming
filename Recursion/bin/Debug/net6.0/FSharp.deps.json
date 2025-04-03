@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "FSharpApp/1.0.0": {
+      "FSharp/1.0.0": {
         "dependencies": {
           "FSharp.Core": "6.0.5"
         },
         "runtime": {
-          "FSharpApp.dll": {}
+          "FSharp.dll": {}
         }
       },
       "FSharp.Core/6.0.5": {
@@ -66,7 +66,7 @@
     }
   },
   "libraries": {
-    "FSharpApp/1.0.0": {
+    "FSharp/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

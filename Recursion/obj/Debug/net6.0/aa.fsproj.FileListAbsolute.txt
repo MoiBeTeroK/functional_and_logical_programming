@@ -1,0 +1,2 @@
+c:\Users\Людмила\Desktop\F#\functional_and_logical_programming\Recursion\obj\Debug\net6.0\aa.AssemblyInfoInputs.cache
+c:\Users\Людмила\Desktop\F#\functional_and_logical_programming\Recursion\obj\Debug\net6.0\aa.AssemblyInfo.fs
