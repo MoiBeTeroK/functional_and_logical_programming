@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qoI7xEOjwxn9KCJ/zEvCGKSzfKRxa82Y8ZGONnrWsEi7Xwt/GC8oNIcLksb97yRw54w2leOCIYQOZIaAfH+4KA==",
+  "dgSpecHash": "Bn1WTAeNkWmarAyDLZbHL+UfPvhwULv+jaFkymAXAAJOyIfK70rgOUw77SSIt9ZNgdj88s0BcjEIMHoadoVVuw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\Recursion\\FSharp.fsproj",
+  "projectFilePath": "C:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\Recursion\\FSharp.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\Людмила\\.nuget\\packages\\fsharp.core\\6.0.5\\fsharp.core.6.0.5.nupkg.sha512"
   ],
