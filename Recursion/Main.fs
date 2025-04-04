@@ -11,13 +11,26 @@ open ProcessDigits
 [<EntryPoint>]
 let main argv =
     // 6 задание
-    let sumFunction = SumOrFact true
-    let factFunction = SumOrFact false
+    // let sumFunction = SumOrFact true
+    // let factFunction = SumOrFact false
 
-    let sumResult = sumFunction 123 
-    let factResult = factFunction 5
-    Console.WriteLine("Sum of digits: {0}", sumResult)
-    Console.WriteLine("Factorial: {0}", factResult)
+    // let sumResult = sumFunction 123 
+    // let factResult = factFunction 5
+    // Console.WriteLine("Sum of digits: {0}", sumResult)
+    // Console.WriteLine("Factorial: {0}", factResult)
+
+    // 7-8 задание
+    let sumOfDigits = processDigits 1342 (fun a b -> a + b) 0
+    Console.WriteLine("Сумма цифр: {0}", sumOfDigits)
+
+    let productOfDigits = processDigits 132 (fun a b -> a * b) 1
+    Console.WriteLine("Произведение цифр: {0}", productOfDigits)
+
+    let minOfDigits = processDigits 132 (fun a b -> if a < b then a else b) 10
+    Console.WriteLine("Минимум цифр: {0}", minOfDigits)
+
+    let maxOfDigits = processDigits 132 (fun a b -> if a > b then a else b) -1
+    Console.WriteLine("Максимум цифр: {0}", maxOfDigits)
 
     // 11 задание
     // let userInput = Console.ReadLine()
