@@ -12,6 +12,7 @@
     <Compile Include="FindMinOddDigit.fs" />
     <Compile Include="SumOfSpecialDivisors.fs" />
     <Compile Include="ChooseFunction.fs" />
+    <Compile Include="SumOrFactorial.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
 

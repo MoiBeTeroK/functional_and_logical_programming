@@ -5,9 +5,19 @@ open CountDivNotDivByThree
 open FindMinOddDigit
 open SumOfSpecialDivisors
 open ChooseFunction
+open SumOrFactorial
 
 [<EntryPoint>]
 let main argv =
+    // 6 задание
+    let sumFunction = SumOrFact true
+    let factFunction = SumOrFact false
+
+    let sumResult = sumFunction 123 
+    let factResult = factFunction 5
+    Console.WriteLine("Sum of digits: {0}", sumResult)
+    Console.WriteLine("Factorial: {0}", factResult)
+
     // 11 задание
     // let userInput = Console.ReadLine()
     // Console.WriteLine(question userInput)
@@ -40,14 +50,14 @@ let main argv =
     // Console.WriteLine(result)
 
     // 20 задание
-    Console.WriteLine("Введите номер функции и аргумент через пробел:")
-    let input = Console.ReadLine().Split()
-    let functionNumber = int input.[0]
-    let argument = int input.[1] 
+    // Console.WriteLine("Введите номер функции и аргумент через пробел:")
+    // let input = Console.ReadLine().Split()
+    // let functionNumber = int input.[0]
+    // let argument = int input.[1] 
 
-    let numFunction = chooseFunction functionNumber
-    let result = numFunction argument
-    Console.WriteLine(result)
+    // let numFunction = chooseFunction functionNumber
+    // let result = numFunction argument
+    // Console.WriteLine(result)
 
-    chooseFunction functionNumber argument |> Console.WriteLine
+    // chooseFunction functionNumber argument |> Console.WriteLine
     0
