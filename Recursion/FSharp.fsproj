@@ -13,6 +13,7 @@
     <Compile Include="SumOfSpecialDivisors.fs" />
     <Compile Include="ChooseFunction.fs" />
     <Compile Include="SumOrFactorial.fs" />
+    <Compile Include="ProcessDigits.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
 

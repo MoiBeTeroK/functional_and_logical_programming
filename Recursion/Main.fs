@@ -6,6 +6,7 @@ open FindMinOddDigit
 open SumOfSpecialDivisors
 open ChooseFunction
 open SumOrFactorial
+open ProcessDigits
 
 [<EntryPoint>]
 let main argv =
