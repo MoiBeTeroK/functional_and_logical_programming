@@ -4,6 +4,7 @@ open CoprimeOperations
 open CountDivNotDivByThree
 open FindMinOddDigit
 open SumOfSpecialDivisors
+open ChooseFunction
 
 [<EntryPoint>]
 let main argv =
@@ -35,6 +36,18 @@ let main argv =
     // Console.WriteLine(findMinOddDigit 2935)
 
     // 16.3 задание
-    let result = sumOfSpecialDivisors 30
+    // let result = sumOfSpecialDivisors 30
+    // Console.WriteLine(result)
+
+    // 20 задание
+    Console.WriteLine("Введите номер функции и аргумент через пробел:")
+    let input = Console.ReadLine().Split()
+    let functionNumber = int input.[0]
+    let argument = int input.[1] 
+
+    let numFunction = chooseFunction functionNumber
+    let result = numFunction argument
     Console.WriteLine(result)
+
+    chooseFunction functionNumber argument |> Console.WriteLine
     0
