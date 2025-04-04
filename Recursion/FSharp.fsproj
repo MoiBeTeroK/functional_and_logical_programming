@@ -10,6 +10,7 @@
     <Compile Include="CoprimeOperations.fs" />
     <Compile Include="CountDivNotDivByThree.fs" />
     <Compile Include="FindMinOddDigit.fs" />
+    <Compile Include="SumOfSpecialDivisors.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
 

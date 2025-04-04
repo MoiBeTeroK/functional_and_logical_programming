@@ -3,6 +3,7 @@ open Language
 open CoprimeOperations
 open CountDivNotDivByThree
 open FindMinOddDigit
+open SumOfSpecialDivisors
 
 [<EntryPoint>]
 let main argv =
@@ -31,5 +32,9 @@ let main argv =
     // Console.WriteLine(countDivNotDivByThree 15)
 
     // 16.2 задание
-    Console.WriteLine(findMinOddDigit 2935)
+    // Console.WriteLine(findMinOddDigit 2935)
+
+    // 16.3 задание
+    let result = sumOfSpecialDivisors 30
+    Console.WriteLine(result)
     0
