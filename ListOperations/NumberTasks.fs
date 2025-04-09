@@ -126,3 +126,27 @@ let countLocalMaximaChurch lst =
             loop newAcc (y :: z :: tail)
         | _ -> acc
     loop 0 lst
+
+// 1.42.1 Дан целочисленный массив. Найти все элементы, которые меньше среднего арифметического элементов массива.
+let findElementsLessThanAverage lst = 
+    if List.length lst < 1 then failwith "Пустой список"
+    let average = float (List.sum lst) / float (List.length lst)
+    List.filter (fun x -> float x < average) lst
+
+// 1.42.2
+let findElementsLessThanAverageChurch lst = 
+    if List.length lst < 1 then failwith "Пустой список"
+    let rec sumAndCount accSum accCount lst =
+        match lst with
+        | [] -> (accSum, accCount)
+        | x::tail -> sumAndCount (accSum + x) (accCount + 1) tail
+
+    let sum, count = sumAndCount 0 0 lst
+    let average = float sum / float count
+
+    let rec loop acc lst =
+        match lst with
+        | [] -> acc
+        | x::tail when float x < average -> loop (acc @ [x]) tail
+        | _::tail -> loop acc tail
+    loop [] lst

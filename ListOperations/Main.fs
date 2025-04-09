@@ -26,13 +26,18 @@ let main argv =
     // Console.WriteLine("Кол-во минимальных эл-ов на интревале (списки Черча): {0}", countValuesMinInRangeChurch)
 
     // 14 задание
-    let lst = [1; 3; 2; 4; 1; 5; 6; 4; 2]
-    let countLocalMax = countLocalMaxima lst
-    let countLocalMaxChurch = countLocalMaximaChurch lst
-    Console.WriteLine("Количество локальных максимумов (возможности класса List): {0}", countLocalMax)
-    Console.WriteLine("Количество локальных максимумов (списки Черча): {0}", countLocalMaxChurch)
+    // let lst = [1; 3; 2; 4; 1; 5; 6; 4; 2]
+    // let countLocalMax = countLocalMaxima lst
+    // let countLocalMaxChurch = countLocalMaximaChurch lst
+    // Console.WriteLine("Количество локальных максимумов (возможности класса List): {0}", countLocalMax)
+    // Console.WriteLine("Количество локальных максимумов (списки Черча): {0}", countLocalMaxChurch)
 
     // 15 задание
+    let lst = [1; 2; 3; 4; 5]
+    let elemLessAverage  = findElementsLessThanAverage lst
+    let elemLessAverageChurch = findElementsLessThanAverageChurch lst
+    printfn "Элементы меньше среднего (возможности класса List): %A" elemLessAverage
+    printfn "Элементы меньше среднего (списки Черча): %A" elemLessAverageChurch
 
     // 16 задание
 
