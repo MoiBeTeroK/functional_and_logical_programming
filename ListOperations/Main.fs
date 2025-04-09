@@ -33,12 +33,17 @@ let main argv =
     // Console.WriteLine("Количество локальных максимумов (списки Черча): {0}", countLocalMaxChurch)
 
     // 15 задание
-    let lst = [1; 2; 3; 4; 5]
-    let elemLessAverage  = findElementsLessThanAverage lst
-    let elemLessAverageChurch = findElementsLessThanAverageChurch lst
-    printfn "Элементы меньше среднего (возможности класса List): %A" elemLessAverage
-    printfn "Элементы меньше среднего (списки Черча): %A" elemLessAverageChurch
+    // let lst = [1; 2; 3; 4; 5]
+    // let elemLessAverage  = findElementsLessThanAverage lst
+    // let elemLessAverageChurch = findElementsLessThanAverageChurch lst
+    // printfn "Элементы меньше среднего (возможности класса List): %A" elemLessAverage
+    // printfn "Элементы меньше среднего (списки Черча): %A" elemLessAverageChurch
 
     // 16 задание
+    let primeFactorsResult = primeFactors 12
+    printfn "Простые делители числа (возможности класса List): %A" primeFactorsResult
+
+    let primeFactorsChurchResult = primeFactorsChurch 12
+    printfn "Простые делители числа (списки Черча): %A" primeFactorsChurchResult
 
     0

@@ -150,3 +150,32 @@ let findElementsLessThanAverageChurch lst =
         | x::tail when float x < average -> loop (acc @ [x]) tail
         | _::tail -> loop acc tail
     loop [] lst
+
+// 1.52.1 Для введенного числа построить список всех его простых делителей, причем если введенное число делится на простое число p в степени α, то в
+// итоговом списке число p должно повторятся α раз. Результирующий список должен быть упорядочен по возрастанию.
+let primeFactors n =
+    let rec loop n p acc =
+        match n with
+        | 1 -> acc
+        | _ when n % p = 0 -> loop (n / p) p (p :: acc)
+        | _ -> loop n (p + 1) acc
+
+    if n < 2 then []
+    else loop n 2 [] |> List.rev
+
+// 1.52.2
+let primeFactorsChurch n =
+    let rec reverse acc lst =
+        match lst with
+        | [] -> acc
+        | x :: tail -> reverse (x :: acc) tail
+
+    let rec decompose n p acc =
+        match n with
+        | 1 -> acc
+        | _ when n % p = 0 -> decompose (n / p) p (p :: acc)
+        | _ -> decompose n (p + 1) acc
+
+
+    if n < 2 then []
+    else reverse [] (decompose n 2 [])
