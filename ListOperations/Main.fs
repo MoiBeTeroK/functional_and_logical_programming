@@ -1,5 +1,6 @@
 open System
 open NumberTasks
+open PrimeDivisorsApp
 
 [<EntryPoint>]
 let main argv =
@@ -40,10 +41,13 @@ let main argv =
     // printfn "Элементы меньше среднего (списки Черча): %A" elemLessAverageChurch
 
     // 16 задание
-    let primeFactorsResult = primeFactors 12
-    printfn "Простые делители числа (возможности класса List): %A" primeFactorsResult
+    // let primeFactorsResult = primeFactors 12
+    // printfn "Простые делители числа (возможности класса List): %A" primeFactorsResult
 
-    let primeFactorsChurchResult = primeFactorsChurch 12
-    printfn "Простые делители числа (списки Черча): %A" primeFactorsChurchResult
+    // let primeFactorsChurchResult = primeFactorsChurch 12
+    // printfn "Простые делители числа (списки Черча): %A" primeFactorsChurchResult
+
+    // 17 задание
+    appWithFunctions
 
     0
