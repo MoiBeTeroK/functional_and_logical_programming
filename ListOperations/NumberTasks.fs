@@ -69,3 +69,38 @@ let reverseBetweenMinMaxChurch list =
             else
                 loop (currentIndex+1) tail (x::res)
     loop 0 list []
+
+// 1.22.1 Дан целочисленный массив и интервал a..b. Необходимо найти количество минимальных элементов в этом интервале.
+let countMinInInterval (lst: int list) a b =
+    if a < 0 || b >= List.length lst || a > b then failwith "Некорректные индексы. Убедитесь, что 0 <= a <= b < длина списка."
+    let subList = lst |> List.skip a |> List.take (b - a + 1)
+    let _, minCount = 
+        subList |> List.fold (fun (minElem, count) x ->
+            if x < minElem then (x, 1)
+            elif x = minElem then (minElem, count + 1)
+            else (minElem, count)
+        ) (System.Int32.MaxValue, 0)
+    minCount
+
+//1.22.2
+let findMinElement lst =
+    List.fold (fun acc x -> if x < acc then x else acc) System.Int32.MaxValue lst
+let countMinInRangeChurch lst a b =
+    if a < 0 || b >= List.length lst || a > b then failwith "Некорректные индексы. Убедитесь, что 0 <= a <= b < длина списка."
+    let rec takeRange start stop acc list = 
+        match list with
+        | [] -> acc
+        | x::tail -> 
+            if start > stop then acc
+            elif start > 0 then takeRange (start-1) (stop-1) acc tail
+            else takeRange start (stop-1) (x::acc) tail
+    
+    let sublist = takeRange a b [] lst
+    let minVal = findMinElement sublist
+
+    let rec countMin count list = 
+        match list with
+        | [] -> count
+        | x::tail -> countMin (if x = minVal then count + 1 else count) tail
+    
+    countMin 0 sublist
