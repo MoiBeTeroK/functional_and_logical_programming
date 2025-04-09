@@ -104,3 +104,25 @@ let countMinInRangeChurch lst a b =
         | x::tail -> countMin (if x = minVal then count + 1 else count) tail
     
     countMin 0 sublist
+
+// 1.32.1 Дан целочисленный массив. Найти количество его локальных максимумов.
+let countLocalMaxima (lst: int list) =
+    if List.length lst < 1 then failwith "Пустой список"
+    else
+        lst |> List.indexed |> List.filter (fun (i, x) ->
+            match i with
+            | 0 -> x > List.head (List.tail lst)
+            | i when i = List.length lst - 1 -> x > List.last (List.take (List.length lst - 1) lst)
+            | i -> x > List.item (i - 1) lst && x > List.item (i + 1) lst)
+        |> List.length
+
+// 1.32.2
+let countLocalMaximaChurch lst =
+    if List.length lst < 1 then failwith "Пустой список"
+    let rec loop acc lst =
+        match lst with
+        | x :: y :: z :: tail ->
+            let newAcc = if y > x && y > z then acc + 1 else acc
+            loop newAcc (y :: z :: tail)
+        | _ -> acc
+    loop 0 lst
