@@ -2,6 +2,7 @@ open System
 open NumberTasks
 open PrimeDivisorsApp
 open TasksWithArrays
+open StringAnalysis
 
 [<EntryPoint>]
 let main argv =
@@ -113,11 +114,16 @@ let main argv =
     // printfn "Первые 100 чисел, делящихся на 13 или 17:\n %A" result
 
     // 18.10 задание
-    Console.Write("Введите коэффициенты многочлена (через пробел): ")
-    // let test = [|1; -6; 11; -6|]
-    let coeffs = Console.ReadLine().Split() |> Array.map int
-    let roots = findRationalRoots coeffs
-    if roots.Length > 0 then printfn "Рациональные корни: %A" roots
-    else printfn "Рациональных корней нет."
+    // Console.Write("Введите коэффициенты многочлена (через пробел): ")
+    // // let test = [|1; -6; 11; -6|]
+    // let coeffs = Console.ReadLine().Split() |> Array.map int
+    // let roots = findRationalRoots coeffs
+    // if roots.Length > 0 then printfn "Рациональные корни: %A" roots
+    // else printfn "Рациональных корней нет."
+
+    // 19 задание
+    let input = "aBcDe"
+    let result = isOrdered input
+    printfn "%b" result
 
     0
