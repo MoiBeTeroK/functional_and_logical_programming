@@ -122,8 +122,14 @@ let main argv =
     // else printfn "Рациональных корней нет."
 
     // 19 задание
-    let input = "aBcDe"
-    let result = isOrdered input
-    printfn "%b" result
+    // let input = "aBcDe"
+    // let result = isOrdered input
+    // printfn "%b" result
 
+    // 20 задание
+    // let input = [| "hello"; "banana"; "aaa"; "abc"; "xxy" |]
+    let strings = inputStrings()
+    let sorted = sortByFreqDiff strings
+    printfn "%A" sorted
+    
     0
