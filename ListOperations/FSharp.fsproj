@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Include="NumberTasks.fs" />
     <Compile Include="PrimeDivisorsApp.fs" />
+    <Compile Include="TasksWithArrays.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
 

@@ -1,6 +1,7 @@
 open System
 open NumberTasks
 open PrimeDivisorsApp
+open TasksWithArrays
 
 [<EntryPoint>]
 let main argv =
@@ -48,6 +49,75 @@ let main argv =
     // printfn "Простые делители числа (списки Черча): %A" primeFactorsChurchResult
 
     // 17 задание
-    appWithFunctions
+    // appWithFunctions
+
+    // 18.1 задание
+    // Console.WriteLine(reverseString "Привет, мир!")
+    
+    // 18.2 задание
+    // let a = [|1; 2; 3|]
+    // let b = [|4; 5; 7|]
+    // printfn "%A" (appendLastBToA a b)
+
+    // 18.3 задание
+    // let a = [|1; 2; 3|]
+    // let b = [|4; 5; 6|]
+    // printfn "%A" (combineArrays a b)
+
+    // 18.4 задание
+    // let a = [|1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11; 12|]
+    // printfn "%A" (filterDivisibleBy3 a)
+
+    // 18.5 задание
+    // Console.Write("Введите первое число (цифры через пробел): ")
+    // let aInput = Console.ReadLine().Split() |> Array.map int
+
+    // Console.Write("Введите второе число (цифры через пробел): ")
+    // let bInput = Console.ReadLine().Split() |> Array.map int
+
+    // let result = (digitsToNumber aInput) - (digitsToNumber bInput)
+    // printfn "Разность: %d" result
+
+    // 18.6 задание
+    // Console.Write("Введите первый массив (цифры через пробел): ")
+    // let aInput = Console.ReadLine().Split() |> Array.map int
+
+    // Console.Write("Введите второй массив (цифры через пробел): ")
+    // let bInput = Console.ReadLine().Split() |> Array.map int
+
+    // let result = unionNonDecreasingArrays aInput bInput
+    // printfn "Объединение: %A" result
+
+    // 18.7 задание
+    // Console.Write("Введите первый массив (цифры через пробел): ")
+    // let aInput = Console.ReadLine().Split() |> Array.map int
+
+    // Console.Write("Введите второй массив (цифры через пробел): ")
+    // let bInput = Console.ReadLine().Split() |> Array.map int
+
+    // let result = intersectionNonDecreasingArrays aInput bInput
+    // printfn "Пересечение: %A" result
+
+    // 18.8 задание
+    // Console.Write("Введите первый массив (цифры через пробел): ")
+    // let aInput = Console.ReadLine().Split() |> Array.map int
+
+    // Console.Write("Введите второй массив (цифры через пробел): ")
+    // let bInput = Console.ReadLine().Split() |> Array.map int
+
+    // let result = symmetricDifference aInput bInput
+    // printfn "Пересечение: %A" result
+
+    // 18.9 задание
+    // let result = getFirst100NumbersDivisibleBy13Or17()
+    // printfn "Первые 100 чисел, делящихся на 13 или 17:\n %A" result
+
+    // 18.10 задание
+    Console.Write("Введите коэффициенты многочлена (через пробел): ")
+    // let test = [|1; -6; 11; -6|]
+    let coeffs = Console.ReadLine().Split() |> Array.map int
+    let roots = findRationalRoots coeffs
+    if roots.Length > 0 then printfn "Рациональные корни: %A" roots
+    else printfn "Рациональных корней нет."
 
     0
