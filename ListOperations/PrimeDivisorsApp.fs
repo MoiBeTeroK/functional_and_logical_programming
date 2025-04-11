@@ -39,6 +39,7 @@ let fiveLists (list: int list) =
     let divideBy3 = 
         halveEvens 
         |> List.filter (fun x -> x % 3 = 0)
+        |> List.map (fun x -> x / 3)
 
     let squares = 
         divideBy3 
@@ -88,6 +89,7 @@ let allPrimeDivisors (list: int list) =
 // [(7,3,4,5,6),(2,3,4,6,7),(2,3,4,5,6),(4,3,10,4,5)] должен быть преобразован в список [23456,23467,73456].
 let sortAndConvertToNumbers (list: (int * int * int * int * int) list) =
     list
+    |> List.filter (fun (a, b, c, d, e) -> List.forall (fun x -> x >= 0 && x <= 9) [a; b; c; d; e])
     |> List.sort
     |> List.map (fun (a, b, c, d, e) -> int (string a + string b + string c + string d + string e))
 
@@ -95,9 +97,7 @@ let sortAndConvertToNumbers (list: (int * int * int * int * int) list) =
 // P(a) – сумма делителей числа а, которые являются делителями хотя бы одного из элементов списка, стоящих на четных позициях и не являются
 // делителями ни одного из элементов, которые меньше среднего арифметического данного списка.
 let divisors n =
-    [1..int (sqrt (float n))]
-    |> List.filter (fun d -> n % d = 0)
-    |> List.collect (fun d -> if d * d = n then [d] else [d; n / d])
+    [1..n] |> List.filter (fun d -> n % d = 0)
 let sortByDivisorsParam list =
     let avg = float (List.sum list) / float (List.length list)
     list
@@ -211,6 +211,7 @@ let appWithFunctions =
         printfn "Пифагоровы тройки: %A" triples
     | 5 ->
         let list = readList ()
+        // let list = [30; 60; 90; 210]
         let result = allPrimeDivisors list
         printfn "Элементы со всеми простыми делителями: %A" result
     | 6 ->

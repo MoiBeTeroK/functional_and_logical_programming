@@ -60,14 +60,14 @@ let reverseBetweenMinMaxChurch list =
             else maxIndex, minIndex
     let rec loop currentIndex tailItems res =
         match tailItems with
-        | [] -> List.rev res
+        | [] -> res
         | x::tail ->
             if currentIndex > start && currentIndex < finish then
                 let mirroredPos = finish - (currentIndex - start)
                 let mirroredValue = list.[mirroredPos]
-                loop (currentIndex+1) tail (mirroredValue::res)
+                loop (currentIndex+1) tail (res @ [mirroredValue])
             else
-                loop (currentIndex+1) tail (x::res)
+                loop (currentIndex+1) tail (res @ [x])
     loop 0 list []
 
 // 1.22.1 Дан целочисленный массив и интервал a..b. Необходимо найти количество минимальных элементов в этом интервале.
@@ -84,7 +84,13 @@ let countMinInInterval (lst: int list) a b =
 
 //1.22.2
 let findMinElement lst =
-    List.fold (fun acc x -> if x < acc then x else acc) System.Int32.MaxValue lst
+    let targetIndex = indexOfMinTailRec lst
+    let rec getByIndex lst index =
+        match lst, index with
+        | x::_, 0 -> x
+        | _::xs, i -> getByIndex xs (i - 1)
+        | [], _ -> failwith "Индекс вне диапазона списка"
+    getByIndex lst targetIndex
 let countMinInRangeChurch lst a b =
     if a < 0 || b >= List.length lst || a > b then failwith "Некорректные индексы. Убедитесь, что 0 <= a <= b < длина списка."
     let rec takeRange start stop acc list = 
@@ -118,24 +124,29 @@ let countLocalMaxima (lst: int list) =
 
 // 1.32.2
 let countLocalMaximaChurch lst =
-    if List.length lst < 1 then failwith "Пустой список"
     let rec loop acc lst =
         match lst with
         | x :: y :: z :: tail ->
             let newAcc = if y > x && y > z then acc + 1 else acc
             loop newAcc (y :: z :: tail)
+        | [x; y] ->
+            if y > x then acc + 1 else acc
         | _ -> acc
-    loop 0 lst
+
+    let acc0 =
+        match lst with
+        | x :: y :: _ when x > y -> 1
+        | _ -> 0
+
+    loop acc0 lst
 
 // 1.42.1 Дан целочисленный массив. Найти все элементы, которые меньше среднего арифметического элементов массива.
 let findElementsLessThanAverage lst = 
-    if List.length lst < 1 then failwith "Пустой список"
     let average = float (List.sum lst) / float (List.length lst)
     List.filter (fun x -> float x < average) lst
 
 // 1.42.2
 let findElementsLessThanAverageChurch lst = 
-    if List.length lst < 1 then failwith "Пустой список"
     let rec sumAndCount accSum accCount lst =
         match lst with
         | [] -> (accSum, accCount)
