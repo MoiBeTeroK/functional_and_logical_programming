@@ -1,23 +1,29 @@
 open System
 open GeometryShapes
+open Figures
 
 [<EntryPoint>]
 let main argv =
-    let rectangle = new Rectangle(5.0, 3.0)
-    let square = new Square(4.0)
-    let circle = new Circle(2.5)
+    let rectangle = new Rectangle(2.0, 6.0)
+    let square = new Square(5.0)
+    let circle = new Circle(4.5)
 
-    printfn "Реализация метода ToString():"
-    printfn "%s" (rectangle.ToString())
-    printfn "%s" (square.ToString())
-    printfn "%s" (circle.ToString())
+    // printfn "Реализация метода ToString():"
+    // printfn "%s" (rectangle.ToString())
+    // printfn "%s" (square.ToString())
+    // printfn "%s" (circle.ToString())
 
-    let printInformation (shape: IPrint) =
-        shape.Print()
+    // let printInformation (shape: IPrint) =
+    //     shape.Print()
  
-    printfn "Реализация метода интерфейса:"
-    printInformation rectangle
-    printInformation square
-    printInformation circle
+    // printfn "Реализация метода интерфейса:"
+    // printInformation rectangle
+    // printInformation square
+    // printInformation circle
+
+    printfn "Площадь прямоугольника: %.2f" (areaShape rectangle)
+    printfn "Площадь квадрата: %.2f" (areaShape square)
+    printfn "Площадь круга: %.2f" (areaShape circle)
+ 
 
     0
