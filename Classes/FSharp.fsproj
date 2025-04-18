@@ -10,6 +10,7 @@
     <Compile Include="Figures.fs" />
     <Compile Include="FunctorsAndMonads.fs" />
     <Compile Include="Parser.fs" />
+    <Compile Include="Agent.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
 
