@@ -4,6 +4,7 @@ open Figures
 open Maybe
 open Parser
 open Agent
+open Passport
 
 [<EntryPoint>]
 let main argv =
@@ -46,15 +47,51 @@ let main argv =
     //     parse exp |> ignore
 
     // 4 задание
-    agent.Post(Print "Привет, агент!")
-    agent.Post(ShowTime)
-    agent.Post(Print "Ещё одно сообщение")
-    agent.Post(Exit)
-    agent.PostAndAsyncReply(fun replyChannel ->
-        replyChannel.Reply()
-        Exit
+    // agent.Post(Print "Привет, агент!")
+    // agent.Post(ShowTime)
+    // agent.Post(Print "Ещё одно сообщение")
+    // agent.Post(Exit)
+    // agent.PostAndAsyncReply(fun replyChannel ->
+    //     replyChannel.Reply()
+    //     Exit
+    // )
+    // |> Async.RunSynchronously
+    // Console.ReadKey() |> ignore
+
+    // 5 задание
+    let vehicle = VehiclePassport(
+        vin = "1HGBH41JXMN109186",
+        mark = "Toyota",
+        model = "Corolla",
+        category = "Легковой",
+        year = 2015,
+        engineModelAndNumber = "2ZR-FE12345",
+        color = "Красный",
+        maxAllowedWeight = 1500.0,
+        exportCountry = "Япония"
     )
-    |> Async.RunSynchronously
-    Console.ReadKey() |> ignore
+    vehicle.PrintDocument()
+
+    if vehicle.Validate() then
+        printfn "Данные о транспортном средстве валидны."
+    else
+        printfn "Ошибка: Недопустимые данные о транспортном средстве."
+
+    let vehicle2 = VehiclePassport(
+        vin = "1HGBH41JXMN109187",  // другой VIN
+        mark = "Honda",
+        model = "Civic",
+        category = "Легковой",
+        year = 2017,
+        engineModelAndNumber = "K24Z12345",
+        color = "Синий",
+        maxAllowedWeight = 1450.0,
+        exportCountry = "Япония"
+    )
+
+    if vehicle.Equals(vehicle2) then
+        printfn "Транспортные средства одинаковые."
+    else
+        printfn "Транспортные средства разные."
 
     0
