@@ -1,7 +1,8 @@
 open System
 open GeometryShapes
 open Figures
-open Maybe
+// open Maybe
+open Parser
 
 [<EntryPoint>]
 let main argv =
@@ -28,9 +29,19 @@ let main argv =
     // printfn "Площадь круга: %.2f" (areaShape circle)
 
     // 2 задание
-    checkFunctorLaws()
-    checkApplicativeLaws()
-    checkMonadLaws()
- 
+    // checkFunctorLaws()
+    // checkApplicativeLaws()
+    // checkMonadLaws()
+
+    // 3 задание
+    let expressions = [
+        "1 + 2"
+        "3 * (4 + 5)"
+        "6 / 2 - 1"
+        "10 + 2 * 3"
+    ]
+    for exp in expressions do
+        printfn "\nВход: %s" exp
+        parse exp |> ignore
 
     0

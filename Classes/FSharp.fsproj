@@ -9,7 +9,12 @@
     <Compile Include="GeometryShapes.fs" />
     <Compile Include="Figures.fs" />
     <Compile Include="FunctorsAndMonads.fs" />
+    <Compile Include="Parser.fs" />
     <Compile Include="Main.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FParsec" Version="1.1.1" />
   </ItemGroup>
 
 </Project>
