@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nmwMEYgIHxLxQUOn/CBwyUrq9LWlYvDoz5lxn5LRUXIG16LnxGXxTB3et+qTPCI2F55H2Vxi4pDPQzhDGiNbrg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\IndividualTask\\FSharp.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Людмила\\.nuget\\packages\\fsharp.core\\6.0.5\\fsharp.core.6.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
