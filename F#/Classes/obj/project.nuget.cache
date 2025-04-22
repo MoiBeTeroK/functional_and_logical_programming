@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "wtGhnREvUMcU7U/VmqUNNzVps7uC+tDMqYOUXPeNgxZOvElbfaV02zoxjaqnfLWUYJyzTLZhliLxvGAvRndSBg==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\Classes\\FSharp.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Людмила\\.nuget\\packages\\fparsec\\1.1.1\\fparsec.1.1.1.nupkg.sha512",
+    "C:\\Users\\Людмила\\.nuget\\packages\\fsharp.core\\6.0.5\\fsharp.core.6.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
