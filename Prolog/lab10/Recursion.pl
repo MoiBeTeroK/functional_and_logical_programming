@@ -39,3 +39,61 @@ remove_if_sum_equal([X|T], TargetSum, Result) :-
     sumCifrList(Digits, Sum),
     (Sum =:= TargetSum -> remove_if_sum_equal(T, TargetSum, Result);
         Result = [X | NewResult], remove_if_sum_equal(T, TargetSum, NewResult)).
+
+% задание 2
+% Вариант № 6
+
+% 1. Найти минимальную цифру числа.
+% Рекурсия вниз
+min_digit_down(N, Min) :- min_digit_down(N, 9, Min).
+min_digit_down(0, Min, Min) :- !.                               
+min_digit_down(N, CurMin, Min) :-                              
+    Digit is N mod 10,                                          % последняя цифра
+    Rest is N // 10,                                            % отброс последней цифры
+    NewMin is min(CurMin, Digit),                               % новый минимум
+    min_digit_down(Rest, NewMin, Min).
+
+% Рекурсия вверх
+min_digit_up(N, Min) :- N < 10, Min is N, !.
+min_digit_up(N, Min) :-
+    Digit is N mod 10,
+    Rest is N // 10,
+    min_digit_up(Rest, MinRest),
+    Min is min(Digit, MinRest).
+
+% 2. Найти количество цифр числа, меньших 3
+% Рекурсия вниз
+countDigitsLessThan3(N, Count) :- count_digits_less_than_3(N, 0, Count). 
+count_digits_less_than_3(0, Acc, Acc) :- !.
+count_digits_less_than_3(N, Acc, Count) :-
+    Digit is N mod 10,                                % берём последнюю цифру
+    Rest is N // 10,                                  % убираем её
+    (Digit < 3 -> NewAcc is Acc + 1 ; NewAcc = Acc),  % увеличиваем счётчик, если < 3
+    count_digits_less_than_3(Rest, NewAcc, Count).
+
+
+% Рекурсия вверх
+countDigitsLessThan3Up(N, Count) :-
+    ( N < 10 -> ( N < 3 -> Count = 1 ; Count = 0);   % если одна цифра — сразу считаем
+        Digit is N mod 10,                           % последняя цифра
+        Rest is N // 10,                             % отброс последней
+        countDigitsLessThan3Up(Rest, CountRest),
+        (Digit < 3 -> Count is CountRest + 1 ; Count = CountRest)
+    ).
+
+% 3. Найти количество делителей числа
+% Рекурсия вниз
+count_divisors(N, Count) :- count_divisors(N, 1, 0, Count).
+count_divisors(N, I, Acc, Acc) :- I > N, !.
+count_divisors(N, I, Acc, Count) :-
+    (N mod I =:= 0 -> NewAcc is Acc+1 ; NewAcc=Acc),  % если I делит N, увеличиваем счёт
+    NextI is I+1,
+    count_divisors(N, NextI, NewAcc, Count).
+
+% Рекурсия вверх
+countDivisorsUp(N, Count) :- countDivisorsUp(N, 1, Count).
+countDivisorsUp(N, I, 0) :- I > N, !.
+countDivisorsUp(N, I, Count) :-
+    I =< N,
+    countDivisorsUp(N, I + 1, RestCount),
+    (N mod I =:= 0 -> Count is RestCount + 1 ; Count = RestCount).
