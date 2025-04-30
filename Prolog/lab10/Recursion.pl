@@ -170,7 +170,7 @@ reverse_between_min_max(List, Result) :-
         Result = List
     ).
 
-main :- read_list(Input),  reverse_between_min_max(Input, Result),  print_list(Result).
+mainReverse :- read_list(Input),  reverse_between_min_max(Input, Result),  print_list(Result).
 
 % 13. Дан целочисленный массив. Необходимо найти элементы, расположенные перед первым минимальным.
 elements_before_min([H|T], Result) :-
@@ -190,3 +190,84 @@ sublist([H|T], I, End, [H|Rest]) :-
     sublist(T, I1, End, Rest).
 
 mainElementsBeforeMin :- read_list(Input),  elements_before_min(Input, Result),  print_list(Result).
+
+% задание 5
+% Найти сумму непростых делителей числа.
+
+read_number(N) :- write('Введите число: '), read(N).
+
+% Делимость
+divides(N, D) :- N mod D =:= 0.
+
+% Есть делитель от D до sqrt(N)
+has_divisor(N, D) :-
+    D * D =< N,
+    (N mod D =:= 0; D1 is D + 1, has_divisor(N, D1)).
+
+% Простое число — не имеет делителей от 2 до sqrt(N)
+is_prime(2).
+is_prime(N) :- N > 2, \+ has_divisor(N, 2).
+
+% Непростое число
+is_not_prime(N) :- N < 2; (N > 2, has_divisor(N, 2)).
+
+% Сумма непростых делителей
+sum_nonprime_divisors(N, Sum) :- sum_nonprime_divisors(N, 1, 0, Sum).
+
+sum_nonprime_divisors(N, D, Acc, Sum) :- D > N, !, Sum = Acc.
+
+sum_nonprime_divisors(N, D, Acc, Sum) :-
+    divides(N, D),
+    is_not_prime(D),
+    !,
+    Acc1 is Acc + D,
+    D1 is D + 1,
+    sum_nonprime_divisors(N, D1, Acc1, Sum).
+
+sum_nonprime_divisors(N, D, Acc, Sum) :-
+    D1 is D + 1,
+    sum_nonprime_divisors(N, D1, Acc, Sum).
+
+mainNoprime :-
+    read_number(N),
+    sum_nonprime_divisors(N, Sum),
+    print_list(Sum).
+
+% Найти количество чисел, не являющихся делителями исходного числа, не взамнопростых с ним и взаимно простых с суммой простых цифр этого числа.
+
+% НОД
+gcd(A, 0, A) :- !.
+gcd(A, B, Gcd) :-
+    B > 0,
+    R is A mod B,
+    gcd(B, R, Gcd).
+
+% Проверка, что числа взаимно простые
+are_coprime(A, B) :- gcd(A, B, 1).
+
+% Проверка, что числа не взаимно простые
+are_not_coprime(A, B) :- gcd(A, B, Gcd), Gcd > 1.
+
+% Сумма простых цифр числа
+sum_prime_digits(N, Sum) :-
+    number_chars(N, Chars),
+    maplist(atom_number, Chars, Digits),
+    include(is_prime, Digits, PrimeDigits),
+    sum_list(PrimeDigits, Sum).
+
+% Проверка всех условий для числа M
+satisfies_conditions(N, M) :-
+    \+ divides(N, M),            % M не делитель N
+    are_not_coprime(N, M),       % M и N не взаимно простые
+    sum_prime_digits(N, SumPD),   % Сумма простых цифр N
+    are_coprime(M, SumPD).       % M и сумма простых цифр N взаимно простые
+
+% Подсчет количества чисел, удовлетворяющих условиям
+count_numbers(N, Count) :-
+    findall(M, (between(1, N, M), satisfies_conditions(N, M)), Numbers),
+    length(Numbers, Count).
+
+mainNum :-
+    read_number(N),
+    count_numbers(N, Count),
+    print_list(Count).
