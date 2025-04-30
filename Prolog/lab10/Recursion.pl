@@ -97,3 +97,96 @@ countDivisorsUp(N, I, Count) :-
     I =< N,
     countDivisorsUp(N, I + 1, RestCount),
     (N mod I =:= 0 -> Count is RestCount + 1 ; Count = RestCount).
+
+% задание 3
+
+% 6. Дан целочисленный массив. Необходимо осуществить циклический сдвиг элементов массива влево на три позиции.
+read_list(List) :- write('Введите список (через точку с запятой, например [1,2,3,4]): '), nl, read(List).
+print_list(List) :- write('Результат: '), write(List), nl.
+shift_left_3(List, Result) :-
+    length(Prefix, 3),           % берем первые 3 элемента
+    append(Prefix, Rest, List),  % разбиваем список
+    append(Rest, Prefix, Result).
+mainShift :- read_list(Input), shift_left_3(Input, Result), print_list(Result).
+
+% 12. Дан целочисленный массив. Необходимо переставить в обратном порядке элементы массива, расположенные между его минимальным и максимальным элементами.
+% Предикат для нахождения позиции минимального элемента
+find_min_pos([X|Xs], Pos) :-
+    find_min_pos(Xs, 1, 0, X, Pos).
+
+find_min_pos([], _, Pos, _, Pos).
+find_min_pos([X|Xs], CurrentPos, CurrentMinPos, CurrentMinVal, Pos) :-
+    (X < CurrentMinVal ->
+        NewMinPos = CurrentPos,
+        NewMinVal = X
+    ;
+        NewMinPos = CurrentMinPos,
+        NewMinVal = CurrentMinVal
+    ),
+    NextPos is CurrentPos + 1,
+    find_min_pos(Xs, NextPos, NewMinPos, NewMinVal, Pos).
+
+% Нахождение позиции максимального элемента (без значения)
+find_max_pos([X|Xs], Pos) :-
+    find_max_pos(Xs, 1, 0, X, Pos).
+
+find_max_pos([], _, Pos, _, Pos).
+find_max_pos([X|Xs], CurrentPos, CurrentMaxPos, CurrentMaxVal, Pos) :-
+    (X > CurrentMaxVal ->
+        NewMaxPos = CurrentPos,
+        NewMaxVal = X
+    ;
+        NewMaxPos = CurrentMaxPos,
+        NewMaxVal = CurrentMaxVal
+    ),
+    NextPos is CurrentPos + 1,
+    find_max_pos(Xs, NextPos, NewMaxPos, NewMaxVal, Pos).
+
+% Разделение списка на части
+split_list(List, Start, End, Before, Middle, After) :-
+    length(Before, Start),
+    append(Before, Rest, List),
+    MiddleLength is End - Start + 1,
+    length(Middle, MiddleLength),
+    append(Middle, After, Rest).
+
+% Переворот части списка между min и max
+reverse_between_min_max(List, Result) :-
+    find_min_pos(List, MinPos),
+    find_max_pos(List, MaxPos),
+    (MinPos < MaxPos ->
+        Start is MinPos + 1,
+        End is MaxPos - 1
+    ;
+        Start is MaxPos + 1,
+        End is MinPos - 1
+    ),
+    (Start =< End ->
+        split_list(List, Start, End, Before, Middle, After),
+        reverse(Middle, ReversedMiddle),
+        append(Before, ReversedMiddle, Temp),
+        append(Temp, After, Result)
+    ;
+        Result = List
+    ).
+
+main :- read_list(Input),  reverse_between_min_max(Input, Result),  print_list(Result).
+
+% 13. Дан целочисленный массив. Необходимо найти элементы, расположенные перед первым минимальным.
+elements_before_min([H|T], Result) :-
+    min_index([H|T], 0, H, 0, MinIndex),
+    sublist([H|T], 0, MinIndex, Result).
+
+min_index([], _, _, Index, Index).
+min_index([H|T], I, Min, MinI, Index) :-
+    I1 is I + 1,
+    ( H < Min -> min_index(T, I1, H, I, Index)
+    ; min_index(T, I1, Min, MinI, Index) ).
+
+sublist(_, End, End, []) :- !.
+sublist([H|T], I, End, [H|Rest]) :-
+    I < End,
+    I1 is I + 1,
+    sublist(T, I1, End, Rest).
+
+mainElementsBeforeMin :- read_list(Input),  elements_before_min(Input, Result),  print_list(Result).
