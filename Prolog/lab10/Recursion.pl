@@ -271,3 +271,50 @@ mainNum :-
     read_number(N),
     count_numbers(N, Count),
     print_list(Count).
+
+% задание 6
+% 42. Дан целочисленный массив. Найти все элементы, которые меньше среднего арифметического элементов массива.
+
+length_list([], 0).
+length_list([_|T], Length) :-
+    length_list(T, TailLength),
+    Length is TailLength + 1.
+
+% Вычисление среднего арифметического
+average(List, Avg) :-
+    sumCifrListUp(List, Sum),
+    length_list(List, Length),
+    Length > 0, % Проверка на пустой список
+    Avg is Sum / Length.
+
+% Нахождение элементов меньше среднего
+find_less_than_avg(List, _, []) :- length_list(List, 0), !. % Для пустого списка
+find_less_than_avg(List, Avg, Result) :-
+    average(List, Avg),
+    findall(X, (member(X, List), X < Avg), Result).
+
+mainLessAverage:- read_list(Input), find_less_than_avg(Input, _, Result), print_list(Result).
+
+% 54. Для введенного списка построить список из элементов, встречающихся в исходном более трех раз.
+
+% Поиск элементов, встречающихся >3 раз
+find_frequent_elements(List, Result) :-
+    findall(X, (member(X, List), count_occurrences(List, X, N), N > 3), Duplicates),
+    remove_duplicates(Duplicates, Result).
+
+% Подсчет количества вхождений элемента
+count_occurrences([], _, 0).
+count_occurrences([X|T], X, N) :-
+    count_occurrences(T, X, N1),
+    N is N1 + 1.
+count_occurrences([Y|T], X, N) :-
+    Y \= X,
+    count_occurrences(T, X, N).
+
+% Удаление дубликатов из списка результатов
+remove_duplicates(List, Unique) :- sort(List, Unique).
+    
+mainMoreThreeTime :-
+    read_list(List),
+    find_frequent_elements(List, Result),
+    print_list(Result).
