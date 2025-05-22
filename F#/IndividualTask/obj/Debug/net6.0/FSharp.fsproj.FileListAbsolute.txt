@@ -25,3 +25,5 @@ C:\Users\Людмила\Desktop\F#\functional_and_logical_programming\Individual
 C:\Users\Людмила\Desktop\F#\functional_and_logical_programming\IndividualTask\obj\Debug\net6.0\FSharp.dll
 C:\Users\Людмила\Desktop\F#\functional_and_logical_programming\IndividualTask\obj\Debug\net6.0\FSharp.pdb
 C:\Users\Людмила\Desktop\F#\functional_and_logical_programming\IndividualTask\obj\Debug\net6.0\FSharp.genruntimeconfig.cache
+c:\Users\Людмила\Desktop\F#\functional_and_logical_programming\F#\IndividualTask\obj\Debug\net6.0\FSharp.AssemblyInfoInputs.cache
+c:\Users\Людмила\Desktop\F#\functional_and_logical_programming\F#\IndividualTask\obj\Debug\net6.0\FSharp.AssemblyInfo.fs

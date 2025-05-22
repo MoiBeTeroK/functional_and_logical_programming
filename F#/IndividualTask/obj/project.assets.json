@@ -122,11 +122,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\IndividualTask\\FSharp.fsproj",
+      "projectUniqueName": "c:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\F#\\IndividualTask\\FSharp.fsproj",
       "projectName": "FSharp",
-      "projectPath": "C:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\IndividualTask\\FSharp.fsproj",
+      "projectPath": "c:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\F#\\IndividualTask\\FSharp.fsproj",
       "packagesPath": "C:\\Users\\Людмила\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\IndividualTask\\obj\\",
+      "outputPath": "c:\\Users\\Людмила\\Desktop\\F#\\functional_and_logical_programming\\F#\\IndividualTask\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Людмила\\AppData\\Roaming\\NuGet\\NuGet.Config",
